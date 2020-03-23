@@ -113,15 +113,6 @@ namespace TravelBills.Web.Controllers
                 return NotFound();
             }
 
-            return View(tripExpenseTypeEntity);
-        }
-
-        // POST: TripExpenseType/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var tripExpenseTypeEntity = await _context.TripExpenseTypes.FindAsync(id);
             _context.TripExpenseTypes.Remove(tripExpenseTypeEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
