@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBills.Web.Data;
 
 namespace TravelBills.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200323192151_Relations")]
+    partial class Relations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,9 +71,7 @@ namespace TravelBills.Web.Migrations
 
                     b.Property<int?>("TripDetailId");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(30);
+                    b.Property<string>("Type");
 
                     b.HasKey("Id");
 
@@ -88,9 +88,7 @@ namespace TravelBills.Web.Migrations
 
                     b.Property<int?>("TripId");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(30);
+                    b.Property<string>("Type");
 
                     b.HasKey("Id");
 

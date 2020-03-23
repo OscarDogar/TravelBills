@@ -27,9 +27,20 @@ namespace TravelBills.Web.Data.Entities
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = false)]
         public DateTime Time { get; set; }
 
+        [Display(Name = "Time")]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = false)]
+        public DateTime TimeLocal => Time.ToLocalTime();
+
         [Display(Name = "Picture")]
         public string PicturePath { get; set; }
 
+        [DataType(DataType.Currency)]
+        [Display(Name = "Bill Value")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
+        public float BillValue { get; set; }
 
+        public ICollection<TripExpenseTypeEntity> TripExpenseTypes { get; set; }
+
+        public TripEntity Trip{ get; set; }
     }
 }
