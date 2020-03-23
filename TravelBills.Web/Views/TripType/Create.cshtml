@@ -1,0 +1,25 @@
+﻿@model TravelBills.Web.Data.Entities.TripTypeEntity
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>TripTypeEntity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+           <partial name="_TripType"/>
+
+           <div class="form-group">
+               <input type="submit" value="Create" class="btn btn-primary" />
+               <a class="btn btn-success" asp-action="Index">Back to List</a>
+           </div>
+        </form>
+    </div>
+</div>
+
