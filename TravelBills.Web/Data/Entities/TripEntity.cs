@@ -34,7 +34,7 @@ namespace TravelBills.Web.Data.Entities
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = false)]
         public DateTime EndDateLocal => EndDate.ToLocalTime();
 
-        public ICollection<TripTypeEntity> TripTypes{ get; set; }
+        public TripTypeEntity TripType{ get; set; }
 
         public ICollection<TripDetailEntity> TripDetails { get; set; }
     }

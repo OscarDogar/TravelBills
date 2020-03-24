@@ -14,22 +14,12 @@ namespace TravelBills.Web.Data.Entities
         [DataType(DataType.DateTime)]
         [Display(Name = "Start Date")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = false)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = false)]
         public DateTime StartDate { get; set; }
 
         [Display(Name = "Start Date")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = false)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = false)]
         public DateTime StartDateLocal => StartDate.ToLocalTime();
-
-        [DataType(DataType.Time)]
-        [Display(Name = "Time")]
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = false)]
-        public DateTime Time { get; set; }
-
-        [Display(Name = "Time")]
-        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = false)]
-        public DateTime TimeLocal => Time.ToLocalTime();
 
         [Display(Name = "Picture")]
         public string PicturePath { get; set; }
@@ -39,7 +29,7 @@ namespace TravelBills.Web.Data.Entities
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public float BillValue { get; set; }
 
-        public ICollection<TripExpenseTypeEntity> TripExpenseTypes { get; set; }
+        public TripExpenseTypeEntity TripExpenseType { get; set; }
 
         public TripEntity Trip{ get; set; }
     }

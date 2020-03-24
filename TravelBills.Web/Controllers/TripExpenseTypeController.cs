@@ -36,13 +36,27 @@ namespace TravelBills.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Type")] TripExpenseTypeEntity tripExpenseTypeEntity)
+        public async Task<IActionResult> Create(TripExpenseTypeEntity tripExpenseTypeEntity)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(tripExpenseTypeEntity);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException.Message.Contains("duplicate"))
+                    {
+                        ModelState.AddModelError(string.Empty, "There is already a record with the same name.");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, ex.InnerException.Message);
+                    }
+                }
             }
             return View(tripExpenseTypeEntity);
         }

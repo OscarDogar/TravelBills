@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBills.Web.Data;
 
 namespace TravelBills.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200324011327_issues")]
+    partial class issues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,13 +33,9 @@ namespace TravelBills.Web.Migrations
 
                     b.Property<DateTime>("StartDate");
 
-                    b.Property<int?>("TripExpenseTypeId");
-
                     b.Property<int?>("TripId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TripExpenseTypeId");
 
                     b.HasIndex("TripId");
 
@@ -54,15 +52,11 @@ namespace TravelBills.Web.Migrations
 
                     b.Property<DateTime>("StartDate");
 
-                    b.Property<int?>("TripTypeId");
-
                     b.Property<string>("VisitedCity")
                         .IsRequired()
                         .HasMaxLength(60);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("TripTypeId");
 
                     b.ToTable("Trips");
                 });
@@ -73,11 +67,15 @@ namespace TravelBills.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("TripDetailId");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(30);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TripDetailId");
 
                     b.HasIndex("Type")
                         .IsUnique();
@@ -91,11 +89,15 @@ namespace TravelBills.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("TripId");
+
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(30);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TripId");
 
                     b.HasIndex("Type")
                         .IsUnique();
@@ -105,20 +107,23 @@ namespace TravelBills.Web.Migrations
 
             modelBuilder.Entity("TravelBills.Web.Data.Entities.TripDetailEntity", b =>
                 {
-                    b.HasOne("TravelBills.Web.Data.Entities.TripExpenseTypeEntity", "TripExpenseType")
-                        .WithMany("TripDetails")
-                        .HasForeignKey("TripExpenseTypeId");
-
                     b.HasOne("TravelBills.Web.Data.Entities.TripEntity", "Trip")
                         .WithMany("TripDetails")
                         .HasForeignKey("TripId");
                 });
 
-            modelBuilder.Entity("TravelBills.Web.Data.Entities.TripEntity", b =>
+            modelBuilder.Entity("TravelBills.Web.Data.Entities.TripExpenseTypeEntity", b =>
                 {
-                    b.HasOne("TravelBills.Web.Data.Entities.TripTypeEntity", "TripType")
-                        .WithMany("Trips")
-                        .HasForeignKey("TripTypeId");
+                    b.HasOne("TravelBills.Web.Data.Entities.TripDetailEntity", "TripDetail")
+                        .WithMany("TripExpenseTypes")
+                        .HasForeignKey("TripDetailId");
+                });
+
+            modelBuilder.Entity("TravelBills.Web.Data.Entities.TripTypeEntity", b =>
+                {
+                    b.HasOne("TravelBills.Web.Data.Entities.TripEntity", "Trip")
+                        .WithMany("TripTypes")
+                        .HasForeignKey("TripId");
                 });
 #pragma warning restore 612, 618
         }

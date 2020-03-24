@@ -20,5 +20,17 @@ namespace TravelBills.Web.Data
         public DbSet<TripTypeEntity> TripTypes { get; set; }
 
         public DbSet<TripDetailEntity> TripDetails { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<TripExpenseTypeEntity>()
+                   .HasIndex(t => t.Type)
+                   .IsUnique();
+            modelBuilder.Entity<TripTypeEntity>()
+                   .HasIndex(t => t.Type)
+                   .IsUnique();
+        }
+       
     }
 }

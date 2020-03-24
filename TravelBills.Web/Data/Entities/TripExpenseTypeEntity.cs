@@ -15,6 +15,6 @@ namespace TravelBills.Web.Data.Entities
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Type { get; set; }
 
-        public TripDetailEntity TripDetail { get; set; }
+        public ICollection<TripDetailEntity> TripDetails { get; set; }
     }
 }
