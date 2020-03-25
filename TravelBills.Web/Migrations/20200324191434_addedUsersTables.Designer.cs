@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBills.Web.Data;
 
 namespace TravelBills.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200324191434_addedUsersTables")]
+    partial class addedUsersTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -234,8 +236,6 @@ namespace TravelBills.Web.Migrations
 
                     b.Property<int?>("TripTypeId");
 
-                    b.Property<string>("UserId");
-
                     b.Property<string>("VisitedCity")
                         .IsRequired()
                         .HasMaxLength(60);
@@ -243,8 +243,6 @@ namespace TravelBills.Web.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("TripTypeId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Trips");
                 });
@@ -346,10 +344,6 @@ namespace TravelBills.Web.Migrations
                     b.HasOne("TravelBills.Web.Data.Entities.TripTypeEntity", "TripType")
                         .WithMany("Trips")
                         .HasForeignKey("TripTypeId");
-
-                    b.HasOne("Soccer.Web.Data.Entities.UserEntity", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

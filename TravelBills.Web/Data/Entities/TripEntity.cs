@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Soccer.Web.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -37,5 +38,7 @@ namespace TravelBills.Web.Data.Entities
         public TripTypeEntity TripType{ get; set; }
 
         public ICollection<TripDetailEntity> TripDetails { get; set; }
+
+        public UserEntity User { get; set; }
     }
 }
