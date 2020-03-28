@@ -24,7 +24,8 @@ namespace TravelBills.Web.Data
             await _context.Database.EnsureCreatedAsync();
             await CheckRolesAsync();
             await CheckUserAsync("1010", "Oscar", "Doria", "oscardoria14@gmail.com", "350 634 2747", "Calle Luna Calle Sol", UserType.Admin);
-            await CheckUserAsync("2020", "Vincenzo", "Corleone", "elpadrino@hotmail.com", "350 634 2747", "Calle Luna Italia", UserType.Employee);
+            await CheckUserAsync("2020", "Vincenzo", "Corleone", "elpadrino@yopmail.com", "350 634 2747", "Calle Luna Italia", UserType.Employee);
+            await CheckUserAsync("2020", "User", "23", "user23@yopmail.com", "350 634 2747", "Calle Luna Italia", UserType.Employee);
             await CheckTripTypesAsync();
             await CheckTripExpenseTypeAsync();
             await CheckTripsAsync();
@@ -114,7 +115,7 @@ namespace TravelBills.Web.Data
                     EndDate = endDate,
                     VisitedCity = "Medellin",
                     TripType = _context.TripTypes.FirstOrDefault(t => t.Type == "Get the visa"),
-                    User = _context.Users.FirstOrDefault(),
+                    User = _context.Users.FirstOrDefault(u => u.Email== "elpadrino@yopmail.com"),
                     TripDetails = new List<TripDetailEntity>
                     {
                          new TripDetailEntity
@@ -135,7 +136,7 @@ namespace TravelBills.Web.Data
                     EndDate = endDate,
                     VisitedCity = "Bogota",
                     TripType = _context.TripTypes.FirstOrDefault(t => t.Type == "Local trip"),
-                    User = _context.Users.FirstOrDefault(),
+                    User = _context.Users.FirstOrDefault(u => u.Email == "elpadrino@yopmail.com"),
                     TripDetails = new List<TripDetailEntity>
                     {
                          new TripDetailEntity
@@ -156,7 +157,7 @@ namespace TravelBills.Web.Data
                     EndDate = endDate,
                     VisitedCity = "Madrid",
                     TripType = _context.TripTypes.FirstOrDefault(t => t.Type == "International trip"),
-                    User = _context.Users.FirstOrDefault(),
+                    User = _context.Users.FirstOrDefault(u => u.Email == "user23@yopmail.com"),
                     TripDetails = new List<TripDetailEntity>
                     {
                          new TripDetailEntity

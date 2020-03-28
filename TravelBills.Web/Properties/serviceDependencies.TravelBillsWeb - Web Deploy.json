@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/5ffc02be-eef1-4405-9258-f94965c997dc/resourceGroups/ITM/providers/Microsoft.Sql/servers/dbodserver/databases/TravelBills.Web_db",
+      "type": "mssql.azure",
+      "connectionId": "DefaultConnection",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
