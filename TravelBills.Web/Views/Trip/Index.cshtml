@@ -54,8 +54,8 @@
                                     @Html.DisplayFor(modelItem => item.User.FullName)
                                 </td>
                                 <td>
-                                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id"><i class="glyphicon glyphicon-align-justify"></i></a>
+                                    @*<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="glyphicon glyphicon-pencil"></i></a>*@
+                                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">More <i class="glyphicon glyphicon-align-justify"></i></a>
                                     @* I had to remove the delete button because the id of the item, when i tried to delete it was making a problem with the fk in tripDetails
                                         so to solve this problem we have to delete the id of tripEntity in TripDetails first*@
                                 </td>
@@ -68,9 +68,24 @@
     </div>
 </div>
 
-<partial name="_DeleteDialog" />
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#MyTable').DataTable();//this is for ID
+
+            // Delete item
+            var item_to_delete;
+
+            $('.deleteItem').click((e) => {//this is for Class
+                item_to_delete = e.currentTarget.dataset.id;
+            });
+
+            $("#btnYesDelete").click(function () {//this is for ID
+                window.location.href = '/TripExpenseType/Delete/' + item_to_delete;
+            });
+        });
+    </script>
 }
