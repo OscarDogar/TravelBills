@@ -33,8 +33,6 @@ namespace TravelBills.Web.Controllers
         // GET: Trip/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            var suma = _context.TripDetails.Select(x=> x.BillValue).Sum();
-
             return View(await _context.TripDetails.Where(td => td.Trip.Id == id).ToListAsync());
         }
 

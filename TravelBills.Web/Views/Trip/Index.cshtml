@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<TravelBills.Web.Data.Entities.TripEntity>
-
+@using TravelBills.Web.Data;
+@inject DataContext _context
 @{
     ViewData["Title"] = "Index";
 }
@@ -31,35 +32,42 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.User.FullName)
                             </th>
+                            <th>
+                                Total Expense
+                            </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.TripType.Type)
-                                </th>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.VisitedCity)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.StartDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.EndDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.User.FullName)
-                                </td>
-                                <td>
-                                    @*<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="glyphicon glyphicon-pencil"></i></a>*@
-                                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">More <i class="glyphicon glyphicon-align-justify"></i></a>
-                                    @* I had to remove the delete button because the id of the item, when i tried to delete it was making a problem with the fk in tripDetails
-                                        so to solve this problem we have to delete the id of tripEntity in TripDetails first*@
-                                </td>
-                            </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.TripType.Type)
+                            </th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VisitedCity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User.FullName)
+                            </td>
+                            @{ var suma = _context.TripDetails.Where(td => td.Trip.Id == @item.Id).Select(x => x.BillValue).Sum();}
+                            <td>
+                                @suma
+                            </td>
+                            <td>
+                                @*<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="glyphicon glyphicon-pencil"></i></a>*@
+                                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">More <i class="glyphicon glyphicon-align-justify"></i></a>
+                                @* I had to remove the delete button because the id of the item, when i tried to delete it was making a problem with the fk in tripDetails
+            so to solve this problem we have to delete the id of tripEntity in TripDetails first*@
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>
