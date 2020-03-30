@@ -11,7 +11,7 @@ namespace Soccer.Web.Helpers
     {
         Task<UserEntity> GetUserAsync(string email);
 
-        //Task<UserEntity> GetUserAsync(Guid userId); 
+        Task<UserEntity> GetUserAsync(Guid userId);
 
         Task<IdentityResult> AddUserAsync(UserEntity user, string password);
 
@@ -25,11 +25,21 @@ namespace Soccer.Web.Helpers
 
         Task LogoutAsync();
 
+        Task<string> GeneratePasswordResetTokenAsync(UserEntity user);
+
+        Task<IdentityResult> ResetPasswordAsync(UserEntity user, string token, string password);
+
         Task<UserEntity> AddUserAsync(AddUserViewModel model, UserType userType);
 
         Task<IdentityResult> ChangePasswordAsync(UserEntity user, string oldPassword, string newPassword);
 
         Task<IdentityResult> UpdateUserAsync(UserEntity user);
+
+        Task<SignInResult> ValidatePasswordAsync(UserEntity user, string password);
+
+        Task<string> GenerateEmailConfirmationTokenAsync(UserEntity user);
+
+        Task<IdentityResult> ConfirmEmailAsync(UserEntity user, string token);
 
     }
 }
