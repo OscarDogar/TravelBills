@@ -5,7 +5,24 @@
              x:Class="TravelBills.Prism.App">
 	<Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
 
-	</Application.Resources>
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">https://travelbillsweb.azurewebsites.net/</x:String>
+
+            <!-- Colors -->
+            <Color x:Key="ColorBackground">#F45060</Color>
+            <Color x:Key="ColorPrimary">#0E0D0D</Color>
+            <Color x:Key="ColorSecondary">#A91225</Color>
+            <Color x:Key="ColorDanger">#FAF2F3</Color>
+            <Color x:Key="ColorAccent">#e0071f</Color>
+            <Color x:Key="ColorFont">#0E0D0D</Color>
+            <Color x:Key="ColorFontInverse">#FAF2F3</Color>
+            
+        </ResourceDictionary>
+        
+       
+
+
+    </Application.Resources>
 </prism:PrismApplication>

@@ -1,5 +1,6 @@
 ﻿using Prism;
 using Prism.Ioc;
+using Soccer.Common.Services;
 using TravelBills.Prism.ViewModels;
 using TravelBills.Prism.Views;
 using Xamarin.Forms;
@@ -28,6 +29,7 @@ namespace TravelBills.Prism
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
         }

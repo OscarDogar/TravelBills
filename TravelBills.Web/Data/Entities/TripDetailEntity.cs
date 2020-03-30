@@ -32,5 +32,9 @@ namespace TravelBills.Web.Data.Entities
         public TripExpenseTypeEntity TripExpenseType { get; set; }
 
         public TripEntity Trip{ get; set; }
+
+        public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
+   ? "https://travelbillsweb.azurewebsites.net//images/noimage.png"
+   : $"https://travelbillsweb.azurewebsites.net{PicturePath.Substring(1)}";
     }
 }
