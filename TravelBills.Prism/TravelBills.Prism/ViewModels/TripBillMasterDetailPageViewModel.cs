@@ -4,6 +4,7 @@ using Soccer.Common.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using TravelBills.Prism.Helpers;
 using TravelBills.Prism.ViewModels;
 
 namespace Soccer.Prism.ViewModels
@@ -28,19 +29,19 @@ namespace Soccer.Prism.ViewModels
                 {
                     Icon = "home",
                     PageName = "MainPage",
-                    Title = "Home"
+                    Title =  Languages.Home
                 },
                 new Menu
                 {
                     Icon = "user",
                     PageName = "ModifyUserPage",
-                    Title = "Modify User"
+                    Title = Languages.Modifyuser
                 },
                 new Menu
                 {
                     Icon = "login",
                     PageName = "LoginPage",
-                    Title = "Login"
+                    Title =  Languages.Login
                 }
             };
 

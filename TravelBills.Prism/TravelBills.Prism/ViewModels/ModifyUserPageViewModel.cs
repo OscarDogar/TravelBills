@@ -4,6 +4,7 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TravelBills.Prism.Helpers;
 
 namespace TravelBills.Prism.ViewModels
 {
@@ -12,7 +13,7 @@ namespace TravelBills.Prism.ViewModels
         public ModifyUserPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Modify User";
+            Title = Languages.Modifyuser;
         }
     }
 }

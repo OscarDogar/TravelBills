@@ -2,6 +2,7 @@
 using Prism.Ioc;
 using Soccer.Common.Services;
 using Soccer.Prism.ViewModels;
+using Syncfusion.Licensing;
 using TravelBills.Prism.ViewModels;
 using TravelBills.Prism.Views;
 using Xamarin.Forms;
@@ -23,6 +24,7 @@ namespace TravelBills.Prism
 
         protected override async void OnInitialized()
         {
+            SyncfusionLicenseProvider.RegisterLicense("MjMwNDU3QDMxMzcyZTM0MmUzMGt6MCtIS1R1bjFrUWFnUytUamh0RE84RThHT25JZ2phMTVmZE1EbTFpTlU9");
             InitializeComponent();
 
             await NavigationService.NavigateAsync("TripBillMasterDetailPage/NavigationPage/MainPage");

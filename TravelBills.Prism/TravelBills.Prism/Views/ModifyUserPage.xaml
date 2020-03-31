@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              Title="{Binding Title}"
+             xmlns:i18n="clr-namespace:TravelBills.Prism.Helpers"
              BackgroundColor="{StaticResource ColorBackground}"
              x:Class="TravelBills.Prism.Views.ModifyUserPage">
   
