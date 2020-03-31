@@ -5,8 +5,8 @@
              BackgroundColor="{StaticResource ColorBackground}"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Bienvenido to Xamarin Forms and Prism!" />
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+        <Label TextColor="{StaticResource ColorFont}" Text="welcome to my application in which you can login to register the trips you make and their respective expenses, I hope you enjoy it!" />
     </StackLayout>
 
 </ContentPage>

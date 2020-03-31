@@ -1,6 +1,7 @@
 ﻿using Prism;
 using Prism.Ioc;
 using Soccer.Common.Services;
+using Soccer.Prism.ViewModels;
 using TravelBills.Prism.ViewModels;
 using TravelBills.Prism.Views;
 using Xamarin.Forms;
@@ -24,7 +25,7 @@ namespace TravelBills.Prism
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("TripBillMasterDetailPage/NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -32,6 +33,9 @@ namespace TravelBills.Prism
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<TripBillMasterDetailPage, TripBillMasterDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
         }
     }
 }
