@@ -17,11 +17,13 @@
                    Margin="0,20,0,0"
                    Source="Bill"/>
             <StackLayout Padding="20">
-                
+
                 <StackLayout>
                     <inputLayout:SfTextInputLayout ContainerType="Outlined"
-                                                   OutlineCornerRadius="8" Hint="{i18n:Translate Email}">
-                      <Entry 
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="{i18n:Translate Email}">
+                        <Entry 
                        BackgroundColor="{StaticResource ColorFontInverse}"
                        Keyboard="Email"
                        Placeholder="{i18n:Translate EmailPlaceHolder}"
@@ -31,7 +33,10 @@
                 
                 <StackLayout >
                 <inputLayout:SfTextInputLayout ContainerType="Outlined"
-                                               OutlineCornerRadius="8" Hint="{i18n:Translate Password}" EnablePasswordVisibilityToggle="true">
+                                               OutlineCornerRadius="8"
+                                               Hint="{i18n:Translate Password}" 
+                                               ReserveSpaceForAssistiveLabels="False"
+                                               EnablePasswordVisibilityToggle="true">
                       <Entry 
                        BackgroundColor="{StaticResource ColorFontInverse}"
                        IsPassword="True"
@@ -41,7 +46,7 @@
             </StackLayout>
 
             </StackLayout>
-            <StackLayout Padding="10">
+            <StackLayout Padding="10,30">
                 <Button Command="{Binding LoginCommand}" 
                         IsEnabled="{Binding IsEnabled}"
                         Text="{i18n:Translate Login}"/>

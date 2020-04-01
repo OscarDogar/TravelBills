@@ -10,6 +10,7 @@ using System.Linq;
 using TravelBills.Common.Helpers;
 using TravelBills.Common.Models;
 using TravelBills.Prism.Helpers;
+using TravelBills.Prism.Views;
 
 namespace TravelBills.Prism.ViewModels
 {
@@ -118,8 +119,9 @@ namespace TravelBills.Prism.ViewModels
 
         }
 
-        private void RegisterAsync()
+        private async void RegisterAsync()
         {
+            await _navigationService.NavigateAsync(nameof(RegisterPage));
         }
     }
 }

@@ -26,6 +26,8 @@ namespace Soccer.Common.Models
         [StringLength(20, MinimumLength = 6)]
         public string Password { get; set; }
 
+        public string PasswordConfirm { get; set; }
+
         [Required]
         public string CultureInfo { get; set; }
     }

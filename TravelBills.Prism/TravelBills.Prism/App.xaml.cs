@@ -3,6 +3,7 @@ using Prism.Ioc;
 using Soccer.Common.Services;
 using Soccer.Prism.ViewModels;
 using Syncfusion.Licensing;
+using TravelBills.Common.Helpers;
 using TravelBills.Prism.ViewModels;
 using TravelBills.Prism.Views;
 using Xamarin.Forms;
@@ -32,12 +33,14 @@ namespace TravelBills.Prism
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IRegexHelper, RegexHelper>();
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<TripBillMasterDetailPage, TripBillMasterDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
         }
     }
 }
