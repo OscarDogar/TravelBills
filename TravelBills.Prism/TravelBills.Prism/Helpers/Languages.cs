@@ -16,6 +16,28 @@ namespace TravelBills.Prism.Helpers
         }
         public static string Culture { get; set; }
 
+        public static string Loading => Resource.Loading;
+
+        public static string Email => Resource.Email;
+
+        public static string Hello => Resource.Hello;
+
+        public static string EmailPlaceHolder => Resource.EmailPlaceHolder;
+
+        public static string Logout => Resource.Logout;
+
+        public static string EmailError => Resource.EmailError;
+
+        public static string LoginError => Resource.LoginError;
+
+        public static string Password => Resource.Password;
+
+        public static string PasswordError => Resource.PasswordError;
+
+        public static string PasswordPlaceHolder => Resource.PasswordPlaceHolder;
+
+        public static string Register => Resource.Register;
+
         public static string Home => Resource.Home;
 
         public static string MainPage => Resource.Main_Page;
