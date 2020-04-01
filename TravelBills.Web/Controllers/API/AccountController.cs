@@ -12,6 +12,7 @@ using System.Globalization;
 using TravelBills.Web.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using TravelBills.Web.Helpers;
 
 namespace Soccer.Web.Controllers.API
 {
@@ -21,15 +22,18 @@ namespace Soccer.Web.Controllers.API
         private readonly DataContext _dataContext;
         private readonly IUserHelper _userHelper;
         private readonly IMailHelper _mailHelper;
+        private readonly IConverterHelper _converterHelper;
 
         public AccountController(
             DataContext dataContext,
             IUserHelper userHelper,
-            IMailHelper mailHelper)
+            IMailHelper mailHelper,
+            IConverterHelper converterHelper)
         {
             _dataContext = dataContext;
             _userHelper = userHelper;
             _mailHelper = mailHelper;
+            _converterHelper = converterHelper;
         }
         [HttpPost]
         [Route("RecoverPassword")]
@@ -208,5 +212,27 @@ namespace Soccer.Web.Controllers.API
                 Message = Resource.ConfirmEmailMessage
             });
         }
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpPost]
+        [Route("GetUserByEmail")]
+        public async Task<IActionResult> GetUserByEmail([FromBody] EmailRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            CultureInfo cultureInfo = new CultureInfo(request.CultureInfo);
+            Resource.Culture = cultureInfo;
+
+            UserEntity userEntity = await _userHelper.GetUserAsync(request.Email);
+            if (userEntity == null)
+            {
+                return NotFound(Resource.UserDoesntExists);
+            }
+
+            return Ok(_converterHelper.ToUserResponse(userEntity));
+        }
+
     }
 }
