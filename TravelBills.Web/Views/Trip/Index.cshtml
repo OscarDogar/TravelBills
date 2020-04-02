@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<TravelBills.Web.Data.Entities.TripEntity>
-@using TravelBills.Web.Data;
-@inject DataContext _context
 @{
     ViewData["Title"] = "Index";
 }
@@ -35,6 +33,9 @@
                             <th>
                                 Total Expense
                             </th>
+                            <th>
+                                Number of expenses
+                            </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -57,9 +58,11 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.User.FullName)
                             </td>
-                            @{ var suma = _context.TripDetails.Where(td => td.Trip.Id == @item.Id).Select(x => x.BillValue).Sum();}
                             <td>
-                                @suma
+                                @Html.DisplayFor(modelItem => item.Total)
+                            </td>
+                            <td>
+                                <center>@Html.DisplayFor(modelItem => item.NumberOfDetails)</center>
                             </td>
                             <td>
                                 @*<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="glyphicon glyphicon-pencil"></i></a>*@
