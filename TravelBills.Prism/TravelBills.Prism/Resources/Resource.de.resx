@@ -237,4 +237,13 @@
   <data name="ForgotPassword" xml:space="preserve">
     <value>Kennwort vergessen?</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Kennwort ändern</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="UserUpdated" xml:space="preserve">
+    <value>Der Benutzer wurde erfolgreich aktualisiert</value>
+  </data>
 </root>

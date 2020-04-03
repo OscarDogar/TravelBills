@@ -3,9 +3,98 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             Title="{Binding Title}"
+              Title="{Binding Title}"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:i18n="clr-namespace:TravelBills.Prism.Helpers"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              BackgroundColor="{StaticResource ColorBackground}"
              x:Class="TravelBills.Prism.Views.ModifyUserPage">
-  
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     Padding="5">
+            <ScrollView>
+                <StackLayout>
+                    <Image HeightRequest="95"
+                       Margin="0,20,0,0"
+                       Source="Biguser"/>
+                    <StackLayout>
+                        <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="{i18n:Translate Document}">
+                            <Entry Keyboard="Numeric"
+                                   Placeholder="{i18n:Translate DocumentPlaceHolder}"
+                                   Text="{Binding User.Document}"/>
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="{i18n:Translate FirstName}">
+                        <Entry Placeholder="{i18n:Translate FirstNamePlaceHolder}"
+                               Text="{Binding User.FirstName}"/>
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="{i18n:Translate LastName}">
+                            <Entry Placeholder="{i18n:Translate LastNamePlaceHolder}"
+                                   Text="{Binding User.LastName}"/>
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="{i18n:Translate Address}">
+                            <Entry Placeholder="{i18n:Translate AddressPlaceHolder}"
+                                   Text="{Binding User.Address}"/>
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="{i18n:Translate Phone}">
+                        <Entry Keyboard="Telephone"
+                               Placeholder="{i18n:Translate PhonePlaceHolder}"
+                               Text="{Binding User.PhoneNumber}"/>
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+                    
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand">
+                <Button Command="{Binding SaveCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="{i18n:Translate Save}"/>
+                <Button Command="{Binding ChangePasswordCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="{i18n:Translate ChangePassword}"
+                        Style="{StaticResource DangerButton}"/>
+            </StackLayout>
+        </StackLayout>
+        <busyindicator:SfBusyIndicator AnimationType="SingleCircle" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   BackgroundColor="{StaticResource ColorPrimary}"
+                	                   HorizontalOptions="Center"
+                	                   TextColor="{StaticResource ColorFontInverse}"
+                	                   IsVisible="{Binding IsRunning}"
+                	                   Title="{i18n:Translate Loading}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+    </AbsoluteLayout>
+
 </ContentPage>
