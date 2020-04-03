@@ -11266,16 +11266,19 @@ namespace TravelBills.Prism.Droid
 			public const int notify_panel_notification_icon_bg = 2131165532;
 			
 			// aapt resource value: 0x7F07015D
-			public const int Splash = 2131165533;
+			public const int password = 2131165533;
 			
 			// aapt resource value: 0x7F07015E
-			public const int tooltip_frame_dark = 2131165534;
+			public const int Splash = 2131165534;
 			
 			// aapt resource value: 0x7F07015F
-			public const int tooltip_frame_light = 2131165535;
+			public const int tooltip_frame_dark = 2131165535;
 			
 			// aapt resource value: 0x7F070160
-			public const int user = 2131165536;
+			public const int tooltip_frame_light = 2131165536;
+			
+			// aapt resource value: 0x7F070161
+			public const int user = 2131165537;
 			
 			static Drawable()
 			{

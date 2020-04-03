@@ -16,7 +16,7 @@
             <Image HeightRequest="150"
                    Margin="0,20,0,0"
                    Source="Bill"/>
-            <StackLayout Padding="20">
+            <StackLayout Padding="2,10">
 
                 <StackLayout>
                     <inputLayout:SfTextInputLayout ContainerType="Outlined"
@@ -45,8 +45,17 @@
                 </inputLayout:SfTextInputLayout>
             </StackLayout>
 
+                    <Label Padding="10" FontAttributes="Bold"
+                           HorizontalOptions="Center" 
+                           Text="{i18n:Translate ForgotPassword}"
+                           TextColor="{StaticResource ColorPrimary}">       
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
             </StackLayout>
-            <StackLayout Padding="10,30">
+            <StackLayout Padding="2,5">
                 <Button Command="{Binding LoginCommand}" 
                         IsEnabled="{Binding IsEnabled}"
                         Text="{i18n:Translate Login}"/>

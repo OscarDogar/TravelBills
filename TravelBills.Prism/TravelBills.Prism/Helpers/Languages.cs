@@ -11,10 +11,14 @@ namespace TravelBills.Prism.Helpers
         {
             var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
             Resource.Culture = ci;
-            Culture = ci.Name;
+            Culture = ci.ToString();
             DependencyService.Get<ILocalize>().SetLocale(ci);
         }
         public static string Culture { get; set; }
+
+        public static string ForgotPassword => Resource.ForgotPassword;
+
+        public static string PasswordRecover => Resource.PasswordRecover;
 
         public static string DocumentError => Resource.DocumentError;
 

@@ -231,4 +231,10 @@
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="PasswordRecover" xml:space="preserve">
+    <value>Passwort wiederherstellen!</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Kennwort vergessen?</value>
+  </data>
 </root>

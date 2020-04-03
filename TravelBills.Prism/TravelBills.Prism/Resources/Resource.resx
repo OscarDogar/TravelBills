@@ -212,4 +212,10 @@ Welcome to my application in which you can login to register the trips you make 
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
+  <data name="PasswordRecover" xml:space="preserve">
+    <value>Password Recover</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
 </root>
