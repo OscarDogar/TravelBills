@@ -106,6 +106,69 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm new password.
+        /// </summary>
+        public static string ConfirmNewPassword {
+            get {
+                return ResourceManager.GetString("ConfirmNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter a confirmation for new password.
+        /// </summary>
+        public static string ConfirmNewPasswordError {
+            get {
+                return ResourceManager.GetString("ConfirmNewPasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The confirmation and the new password does not match.
+        /// </summary>
+        public static string ConfirmNewPasswordError2 {
+            get {
+                return ResourceManager.GetString("ConfirmNewPasswordError2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the password confirmation.
+        /// </summary>
+        public static string ConfirmNewPasswordPlaceHolder {
+            get {
+                return ResourceManager.GetString("ConfirmNewPasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current password.
+        /// </summary>
+        public static string CurrentPassword {
+            get {
+                return ResourceManager.GetString("CurrentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter your current password.
+        /// </summary>
+        public static string CurrentPasswordError {
+            get {
+                return ResourceManager.GetString("CurrentPasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your current password .
+        /// </summary>
+        public static string CurrentPasswordPlaceHolder {
+            get {
+                return ResourceManager.GetString("CurrentPasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Document.
         /// </summary>
         public static string Document {
@@ -304,6 +367,33 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New password.
+        /// </summary>
+        public static string NewPassword {
+            get {
+                return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter a new password.
+        /// </summary>
+        public static string NewPasswordError {
+            get {
+                return ResourceManager.GetString("NewPasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the new password.
+        /// </summary>
+        public static string NewPasswordPlaceHolder {
+            get {
+                return ResourceManager.GetString("NewPasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OK {
@@ -363,6 +453,15 @@ namespace TravelBills.Prism.Resources {
         public static string PasswordError {
             get {
                 return ResourceManager.GetString("PasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter at least 6 characters.
+        /// </summary>
+        public static string PasswordLength {
+            get {
+                return ResourceManager.GetString("PasswordLength", resourceCulture);
             }
         }
         

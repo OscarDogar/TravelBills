@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using TravelBills.Common.Helpers;
 using TravelBills.Common.Models;
 using TravelBills.Prism.Helpers;
+using TravelBills.Prism.Views;
 
 namespace TravelBills.Prism.ViewModels
 {
@@ -23,6 +24,7 @@ namespace TravelBills.Prism.ViewModels
         private bool _isEnabled;
         private UserResponse _user;
         private DelegateCommand _saveCommand;
+        private DelegateCommand _changePasswordCommand;
 
 
         public ModifyUserPageViewModel(INavigationService navigationService, IApiService apiService)
@@ -37,6 +39,7 @@ namespace TravelBills.Prism.ViewModels
 
         public DelegateCommand SaveCommand => _saveCommand ?? (_saveCommand = new DelegateCommand(SaveAsync));
 
+        public DelegateCommand ChangePasswordCommand => _changePasswordCommand ?? (_changePasswordCommand = new DelegateCommand(ChangePasswordAsync));
 
         public UserResponse User
         {
@@ -96,6 +99,10 @@ namespace TravelBills.Prism.ViewModels
             Settings.User = JsonConvert.SerializeObject(User);
             TripBillMasterDetailPageViewModel.GetInstance().ReloadUser();
             await App.Current.MainPage.DisplayAlert(Languages.OK, Languages.UserUpdated, Languages.Accept);
+        }
+        private async void ChangePasswordAsync()
+        {
+            await _navigationService.NavigateAsync(nameof(ChangePasswordPage));
         }
 
         private async Task<bool> ValidateDataAsync()
