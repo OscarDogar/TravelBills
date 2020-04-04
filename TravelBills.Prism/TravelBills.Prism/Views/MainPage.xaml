@@ -11,7 +11,7 @@
                      AbsoluteLayout.LayoutFlags="All" 
                      Padding="10">
 
-            <Label TextColor="{StaticResource ColorFont}" FontSize="Large" Text="{i18n:Translate Welcome}" />
+            <Label TextColor="{StaticResource ColorFont}" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Text="{i18n:Translate Welcome}" />
         </StackLayout>
         <!--<busyindicator:SfBusyIndicator AnimationType="SingleCircle" 
                                        AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"

@@ -4,6 +4,7 @@ using Prism.Mvvm;
 using Prism.Navigation;
 using Soccer.Common.Models;
 using Soccer.Common.Services;
+using Soccer.Prism.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace TravelBills.Prism.ViewModels
         private bool _isEnabled;
         private UserResponse _user;
         private DelegateCommand _saveCommand;
+
 
         public ModifyUserPageViewModel(INavigationService navigationService, IApiService apiService)
             : base(navigationService)
@@ -92,6 +94,7 @@ namespace TravelBills.Prism.ViewModels
             }
 
             Settings.User = JsonConvert.SerializeObject(User);
+            TripBillMasterDetailPageViewModel.GetInstance().ReloadUser();
             await App.Current.MainPage.DisplayAlert(Languages.OK, Languages.UserUpdated, Languages.Accept);
         }
 
