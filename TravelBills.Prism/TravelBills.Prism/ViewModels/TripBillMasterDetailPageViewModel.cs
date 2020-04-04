@@ -91,7 +91,8 @@ namespace Soccer.Prism.ViewModels
                 {
                     Icon = "user",
                     PageName = "ModifyUserPage",
-                    Title = Languages.Modifyuser
+                    Title = Languages.Modifyuser,
+                    IsLoginRequired = true
                 },
                 new Menu
                 {
@@ -106,7 +107,9 @@ namespace Soccer.Prism.ViewModels
                 {
                     Icon = m.Icon,
                     PageName = m.PageName,
-                    Title = m.Title
+                    Title = m.Title,
+                    IsLoginRequired = m.IsLoginRequired
+
                 }).ToList());
         }
     }

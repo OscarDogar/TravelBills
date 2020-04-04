@@ -25,7 +25,15 @@ namespace Soccer.Prism.ViewModels
                 Settings.User = null;
                 Settings.Token = null;
             }
-            await _navigationService.NavigateAsync($"/TripBillMasterDetailPage/NavigationPage/{PageName}");
+            if (IsLoginRequired && !Settings.IsLogin)
+            {
+                await _navigationService.NavigateAsync($"/TripBillMasterDetailPage/NavigationPage/LoginPage");
+            }
+            else
+            {
+                await _navigationService.NavigateAsync($"/TripBillMasterDetailPage/NavigationPage/{PageName}");
+            }
+
         }
     }
 }
