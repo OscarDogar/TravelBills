@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Soccer.Common.Models;
 using Soccer.Web.Helpers;
@@ -15,6 +17,7 @@ using TravelBills.Web.Resources;
 
 namespace TravelBills.Web.Controllers.API
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     [ApiController]
     public class TripDetailController : ControllerBase
@@ -22,12 +25,14 @@ namespace TravelBills.Web.Controllers.API
         private readonly DataContext _context;
         private readonly IConverterHelper _converterHelper;
         private readonly IUserHelper _userHelper;
+        private readonly IImageHelper _imageHelper;
 
-        public TripDetailController(DataContext context, IConverterHelper converterHelper, IUserHelper userHelper)
+        public TripDetailController(DataContext context, IConverterHelper converterHelper, IUserHelper userHelper, IImageHelper imageHelper)
         {
             _context = context;
             _converterHelper = converterHelper;
             _userHelper = userHelper;
+            _imageHelper = imageHelper;
         }
         [HttpPost]
         public async Task<IActionResult> PostTravelDetails([FromBody] TripDetailRequest TripDetailRequest)
@@ -63,12 +68,12 @@ namespace TravelBills.Web.Controllers.API
                     Message = Resource.TheTypeExpenseWasNotFound
                 });
             }
-            var picturePath = "";
-            //string picturePath = string.Empty;
-            //if (TripDetailRequest.ReceiptPhotoArray != null && TripDetailRequest.ReceiptPhotoArray.Length > 0)
-            //{
-            //    picturePath = _imageHelper.UploadImage(TripDetailRequest.ReceiptPhotoArray, "TravelDetails");
-            //}
+            
+            string picturePath = string.Empty;
+            if (TripDetailRequest.PictureArray != null && TripDetailRequest.PictureArray.Length > 0)
+            {
+                picturePath = _imageHelper.UploadImage(TripDetailRequest.PictureArray, "BillsPictures");
+            }
 
             var travelDetail = new TripDetailEntity
             {

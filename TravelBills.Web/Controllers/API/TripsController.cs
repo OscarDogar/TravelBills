@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Soccer.Common.Models;
 using Soccer.Web.Data.Entities;
@@ -16,6 +18,7 @@ using TravelBills.Web.Resources;
 
 namespace TravelBills.Web.Controllers.API
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     [ApiController]
     public class TripsController : ControllerBase
