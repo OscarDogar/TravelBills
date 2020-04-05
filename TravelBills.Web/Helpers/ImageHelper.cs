@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Soccer.Web.Helpers
+namespace TravelBills.Web.Helpers
 {
-    public class ImageHelper : IImageHelper
+    public class ImageHelper: IImageHelper
     {
         public string UploadImage(byte[] pictureArray, string folder)
         {

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Soccer.Web.Helpers
+namespace TravelBills.Web.Helpers
 {
     public interface IImageHelper
     {
-        string UploadImage(byte[] pictureArray, string folder);
+       string UploadImage(byte[] pictureArray, string folder);
     }
+
 }
