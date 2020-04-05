@@ -156,4 +156,19 @@
   <data name="TripExpenseTypeDoesntExists" xml:space="preserve">
     <value>Trip Expense Type eoesn't exists</value>
   </data>
+  <data name="TheTripTypeWasNotFound" xml:space="preserve">
+    <value>The Trip type was not found</value>
+  </data>
+  <data name="TheTripHasBeenSavedCorrectly" xml:space="preserve">
+    <value>The trip has been saved correctly</value>
+  </data>
+  <data name="ThisTripDoesNotExist" xml:space="preserve">
+    <value>This trip does not exist</value>
+  </data>
+  <data name="TheTypeExpenseWasNotFound" xml:space="preserve">
+    <value>The Type Expense was not found</value>
+  </data>
+  <data name="TheExpensesOfTheTripHasBeenSaved" xml:space="preserve">
+    <value>The Expenses of the trip has been saved</value>
+  </data>
 </root>

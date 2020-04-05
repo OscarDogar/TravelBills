@@ -133,6 +133,51 @@ namespace TravelBills.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Expenses of the trip has been saved.
+        /// </summary>
+        public static string TheExpensesOfTheTripHasBeenSaved {
+            get {
+                return ResourceManager.GetString("TheExpensesOfTheTripHasBeenSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The trip has been saved correctly.
+        /// </summary>
+        public static string TheTripHasBeenSavedCorrectly {
+            get {
+                return ResourceManager.GetString("TheTripHasBeenSavedCorrectly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Trip type was not found.
+        /// </summary>
+        public static string TheTripTypeWasNotFound {
+            get {
+                return ResourceManager.GetString("TheTripTypeWasNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Type Expense was not found.
+        /// </summary>
+        public static string TheTypeExpenseWasNotFound {
+            get {
+                return ResourceManager.GetString("TheTypeExpenseWasNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This trip does not exist.
+        /// </summary>
+        public static string ThisTripDoesNotExist {
+            get {
+                return ResourceManager.GetString("ThisTripDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trip doesn&apos;t exists..
         /// </summary>
         public static string TripDoesntExists {
