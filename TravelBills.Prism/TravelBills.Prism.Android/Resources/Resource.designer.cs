@@ -11281,7 +11281,10 @@ namespace TravelBills.Prism.Droid
 			public const int tooltip_frame_light = 2131165537;
 			
 			// aapt resource value: 0x7F070162
-			public const int user = 2131165538;
+			public const int trips = 2131165538;
+			
+			// aapt resource value: 0x7F070163
+			public const int user = 2131165539;
 			
 			static Drawable()
 			{

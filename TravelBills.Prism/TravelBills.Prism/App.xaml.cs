@@ -43,6 +43,8 @@ namespace TravelBills.Prism
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
             containerRegistry.RegisterForNavigation<RememberPasswordPage, RememberPasswordPageViewModel>();
             containerRegistry.RegisterForNavigation<ChangePasswordPage, ChangePasswordPageViewModel>();
+            containerRegistry.RegisterForNavigation<TripsPage, TripsPageViewModel>();
+            containerRegistry.RegisterForNavigation<NewTripPage, NewTripPageViewModel>();
         }
     }
 }

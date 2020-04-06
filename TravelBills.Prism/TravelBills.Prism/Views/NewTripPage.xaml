@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="{StaticResource ColorBackground}"
+             xmlns:i18n="clr-namespace:TravelBills.Prism.Helpers"
+             Title="{Binding Title}"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="TravelBills.Prism.Views.NewTripPage">
+    <ScrollView>
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     Padding="10">
+
+                <StackLayout>
+                    <StackLayout>
+                        <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="City">
+
+                            <Entry Placeholder="Enter the city"
+                                   Text="{Binding Trip.VisitedCity}"/> 
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="Start date">
+
+                            <DatePicker x:Name="startDatePicker"
+                     TextColor="Black"
+                     Date="{Binding Trip.StartDate}"
+                     MinimumDate="{Binding todayDate}"
+                     MaximumDate="12/31/2030"
+                     Format="dd/MM/yyyy"/>
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="Trip type">
+                    <DatePicker x:Name="EndDate"
+                     TextColor="Black"
+                     Date="{Binding Trip.EndDate}"
+                     MinimumDate="{Binding todayDate}"
+                     MaximumDate="12/31/2030"
+                     Format="dd/MM/yyyy"/>
+                        </inputLayout:SfTextInputLayout>
+                    </StackLayout>
+
+                    <Label 
+                     Text="Trip Types"
+                     TextColor="Black"  
+                     FontAttributes="Bold" 
+                     VerticalOptions="Center"/>
+                    
+                    <Picker 
+                     ItemDisplayBinding="{Binding Type}"
+                     ItemsSource="{Binding TripTypes}"
+                     SelectedItem="{Binding TripType}"
+                     Title="Select the trip type:">
+                    </Picker>
+                       
+                </StackLayout>
+                <StackLayout >
+                    <Button Command="{Binding SaveCommand}"  
+                            Style="{StaticResource DangerButton}"
+                            IsEnabled="{Binding IsEnabled}"
+                            Text="{i18n:Translate Save}"/>
+                </StackLayout>
+            </StackLayout>
+            <busyindicator:SfBusyIndicator AnimationType="SingleCircle" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   BackgroundColor="{StaticResource ColorPrimary}"
+                	                   HorizontalOptions="Center"
+                	                   TextColor="{StaticResource ColorFontInverse}"
+                	                   IsVisible="{Binding IsRunning}"
+                	                   Title="{i18n:Translate Loading}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+        </AbsoluteLayout>
+    </ScrollView>
+</ContentPage>

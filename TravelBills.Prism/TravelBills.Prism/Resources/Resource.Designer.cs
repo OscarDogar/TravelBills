@@ -394,6 +394,15 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Trip Page.
+        /// </summary>
+        public static string NewTripPage {
+            get {
+                return ResourceManager.GetString("NewTripPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OK {
@@ -511,6 +520,24 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter a city.
+        /// </summary>
+        public static string PleaseEnterACity {
+            get {
+                return ResourceManager.GetString("PleaseEnterACity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select a trip type!.
+        /// </summary>
+        public static string PleaseSelectATripType {
+            get {
+                return ResourceManager.GetString("PleaseSelectATripType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
@@ -525,6 +552,24 @@ namespace TravelBills.Prism.Resources {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The start date must be less than the end date.
+        /// </summary>
+        public static string TheStartDateMustBeLess {
+            get {
+                return ResourceManager.GetString("TheStartDateMustBeLess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trips Page.
+        /// </summary>
+        public static string TripsPage {
+            get {
+                return ResourceManager.GetString("TripsPage", resourceCulture);
             }
         }
         

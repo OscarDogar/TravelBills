@@ -260,4 +260,19 @@ Welcome to my application in which you can login to register the trips you make 
   <data name="PasswordLength" xml:space="preserve">
     <value>You must enter at least 6 characters</value>
   </data>
+  <data name="TripsPage" xml:space="preserve">
+    <value>Trips Page</value>
+  </data>
+  <data name="NewTripPage" xml:space="preserve">
+    <value>New Trip Page</value>
+  </data>
+  <data name="PleaseSelectATripType" xml:space="preserve">
+    <value>Please select a trip type!</value>
+  </data>
+  <data name="TheStartDateMustBeLess" xml:space="preserve">
+    <value>The start date must be less than the end date</value>
+  </data>
+  <data name="PleaseEnterACity" xml:space="preserve">
+    <value>Please enter a city</value>
+  </data>
 </root>

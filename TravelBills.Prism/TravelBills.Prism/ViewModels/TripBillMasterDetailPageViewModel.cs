@@ -96,6 +96,13 @@ namespace Soccer.Prism.ViewModels
                 },
                 new Menu
                 {
+                    Icon = "trips",
+                    PageName = "TripsPage",
+                    Title = Languages.TripsPage,
+                    IsLoginRequired = true
+                },
+                new Menu
+                {
                     Icon = "login",
                     PageName = "LoginPage",
                     Title = Settings.IsLogin ? Languages.Logout : Languages.Login

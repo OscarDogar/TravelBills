@@ -279,4 +279,19 @@
   <data name="PasswordLength" xml:space="preserve">
     <value>Mindestens 6 Zeichen eingeben</value>
   </data>
+  <data name="TripsPage" xml:space="preserve">
+    <value>Reisen</value>
+  </data>
+  <data name="NewTripPage" xml:space="preserve">
+    <value>Neue Reise</value>
+  </data>
+  <data name="PleaseSelectATripType" xml:space="preserve">
+    <value>Bitte wählen Sie einen Reisetyp</value>
+  </data>
+  <data name="TheStartDateMustBeLess" xml:space="preserve">
+    <value>Das Startdatum muss kleiner sein als das Enddatum</value>
+  </data>
+  <data name="PleaseEnterACity" xml:space="preserve">
+    <value>Bitte geben Sie die Stadt ein</value>
+  </data>
 </root>

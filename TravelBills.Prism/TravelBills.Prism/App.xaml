@@ -11,7 +11,7 @@
             <x:String x:Key="UrlAPI">https://travelbillsweb.azurewebsites.net/</x:String>
 
             <!-- Colors -->
-            <Color x:Key="ColorBackground">#F45060</Color>
+            <Color x:Key="ColorBackground">#ff5e81</Color>
             <Color x:Key="ColorPrimary">#0E0D0D</Color>
             <Color x:Key="ColorSecondary">#A91225</Color>
             <Color x:Key="ColorDanger">#FAF2F3</Color>

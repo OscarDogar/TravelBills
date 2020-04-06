@@ -18,6 +18,16 @@ namespace TravelBills.Prism.Helpers
 
         public static string Save => Resource.Save;
 
+        public static string PleaseEnterACity => Resource.PleaseEnterACity;
+
+        public static string TheStartDateMustBeLess => Resource.TheStartDateMustBeLess;
+
+        public static string PleaseSelectATripType => Resource.PleaseSelectATripType;
+
+        public static string TripsPage => Resource.TripsPage;
+
+        public static string NewTripPage => Resource.NewTripPage;
+
         public static string ChangePassword => Resource.ChangePassword;
 
         public static string ConfirmNewPassword => Resource.ConfirmNewPassword;
