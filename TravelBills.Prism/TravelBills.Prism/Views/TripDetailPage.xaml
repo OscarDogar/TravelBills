@@ -6,8 +6,107 @@
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              Title="{Binding Title}"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:i18n="clr-namespace:TravelBills.Prism.Helpers"
              BackgroundColor="{StaticResource ColorBackground}"
              x:Class="TravelBills.Prism.Views.TripDetailPage">
-  
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     Padding="10">
+
+            <StackLayout>
+                <ffimageloading:CachedImage Aspect="AspectFit"
+                                                Source="{Binding Image}" 
+                                                CacheDuration= "50"
+                                                HeightRequest="150"
+                                                Margin="5"
+                                                RetryCount= "3"
+                                                RetryDelay= "600">
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ffimageloading:CachedImage.Transformations>
+                    <ffimageloading:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                    </ffimageloading:CachedImage.GestureRecognizers>
+                </ffimageloading:CachedImage>
+                <StackLayout>
+                    <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="Bill Value">
+                        <Entry Grid.Row="0"
+                    Grid.Column="1"
+                    Keyboard="Numeric"
+                    Placeholder="Enter the value"
+                    Text="{Binding TripDetail.BillValue}"/>
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
+                <StackLayout>
+                    <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="Date">
+
+                        <DatePicker x:Name="startDatePicker"
+                     TextColor="Black"
+                     WidthRequest="120"
+                     FontAttributes="Bold"
+                     Date="{Binding Date}"
+                     MinimumDate="{Binding todayDate}"
+                     MaximumDate="12/31/2030"
+                     Format="dd/MM/yyyy"/>
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
+                <StackLayout>
+                <inputLayout:SfTextInputLayout ContainerType="Outlined"
+                                                   OutlineCornerRadius="8"
+                                                   ReserveSpaceForAssistiveLabels="False"
+                                                   Hint="Time">
+                    <TimePicker x:Name="timePicker"
+                     Time="{Binding Time}"
+                     FontAttributes="Bold"
+                     Format="HH:mm"/>
+                </inputLayout:SfTextInputLayout>
+            </StackLayout>
+           
+               
+                <StackLayout Orientation="Horizontal" Spacing="4" VerticalOptions="CenterAndExpand">
+                    <Image Source="city" />
+                    <Label 
+                     Text="Type Expense"
+                     TextColor="Black"  
+                     FontAttributes="Bold" 
+                     VerticalOptions="Center"/>
+                </StackLayout>
+                <Picker 
+                     ItemDisplayBinding="{Binding Type}"
+                     ItemsSource="{Binding TripExpenseTypes}"
+                     SelectedItem="{Binding TripExpenseType}"
+                     Title="Select the trip expense type:">
+                </Picker>
+
+            </StackLayout>
+            <StackLayout VerticalOptions="End">
+                <Button Command="{Binding SaveCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                         Text="Add"
+                        Style="{StaticResource DangerButton}"/>
+            </StackLayout>
+           
+        </StackLayout>
+        <busyindicator:SfBusyIndicator AnimationType="SingleCircle" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   BackgroundColor="{StaticResource ColorPrimary}"
+                	                   HorizontalOptions="Center"
+                	                   TextColor="{StaticResource ColorFontInverse}"
+                	                   IsVisible="{Binding IsRunning}"
+                	                   Title="{i18n:Translate Loading}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+    </AbsoluteLayout>
 </ContentPage>
