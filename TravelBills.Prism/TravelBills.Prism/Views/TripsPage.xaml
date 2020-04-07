@@ -22,7 +22,7 @@
                      Padding="6">
 
                     <StackLayout Padding="4"></StackLayout>
-                    <CollectionView ItemsSource="{Binding Trips1}">
+                    <CollectionView ItemsSource="{Binding Trips}">
 
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10"/>

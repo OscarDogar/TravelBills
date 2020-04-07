@@ -20,8 +20,7 @@ namespace TravelBills.Prism.ViewModels
         private readonly IApiService _apiService;
         private DelegateCommand _newTrip;
         private static TripsPageViewModel _instance;
-        private List<TripResponse> _trips;
-        private List<TripResponse> _trips1;
+        private List<TripItemViewModel> _trips;
         private UserResponse _user;
         private bool _isRunning;
         public TripsPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
@@ -55,16 +54,10 @@ namespace TravelBills.Prism.ViewModels
             get => _isRunning;
             set => SetProperty(ref _isRunning, value);
         }
-        public List<TripResponse> Trips
+        public List<TripItemViewModel> Trips
         {
             get => _trips;
             set => SetProperty(ref _trips, value);
-        }
-
-        public List<TripResponse> Trips1
-        {
-            get => _trips1;
-            set => SetProperty(ref _trips1, value);
         }
 
         private async void NewTripAsync()
@@ -88,15 +81,16 @@ namespace TravelBills.Prism.ViewModels
                 }
 
 
-                Trips = (List<TripResponse>)response.Result;
+                List<TripResponse>  trips = (List<TripResponse>)response.Result;
                 var list = new List<TripResponse>();
-                foreach (var item in Trips)
+                foreach (var item in trips)
                 {
                     if (item.User.Id == User.Id)
                     {
 
                         list.Add(new TripResponse
                         {
+                            Id=item.Id,
                             User = item.User,
                             EndDate = item.EndDate,
                             StartDate = item.StartDate,
@@ -108,7 +102,13 @@ namespace TravelBills.Prism.ViewModels
 
                 }
 
-                Trips1 = list;
+            Trips = list.Select(t => new TripItemViewModel(_navigationService) { 
+                Id=t.Id,
+                User = t.User, 
+                EndDate = t.EndDate, 
+                StartDate = t.StartDate, 
+                TripType = t.TripType, 
+                VisitedCity = t.VisitedCity, }).ToList();
         }
     }
 }
