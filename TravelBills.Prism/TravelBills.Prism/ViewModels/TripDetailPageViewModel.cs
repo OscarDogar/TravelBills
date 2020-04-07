@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -20,6 +22,7 @@ namespace TravelBills.Prism.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
+        private readonly IFilesHelper _filesHelper;
         private bool _isRunning;
         private bool _isEnabled;
         private TripExpenseTypeResponse _tripexpensetype;
@@ -27,12 +30,15 @@ namespace TravelBills.Prism.ViewModels
         private TripDetailRequest _tripDetail;
         private TripResponse _trip;
         private ImageSource _image;
+        private MediaFile _file;
+        private DelegateCommand _changeImageCommand;
         private DelegateCommand _saveCommand;
 
-        public TripDetailPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
+        public TripDetailPageViewModel(INavigationService navigationService, IApiService apiService, IFilesHelper filesHelper) : base(navigationService)
         {
             _navigationService = navigationService;
             _apiService = apiService;
+            _filesHelper = filesHelper;
             Image = App.Current.Resources["UrlNoImage"].ToString();
             IsEnabled = true;
             TripDetail = new TripDetailRequest();
@@ -41,10 +47,14 @@ namespace TravelBills.Prism.ViewModels
             LoadTripExpenseTypeAsync();
         }
         public TimeSpan Time { get; set; }
+
         public DateTime Date { get; set; }
+
         public DateTime todayDate { get; set; }
 
         public DelegateCommand SaveCommand => _saveCommand ?? (_saveCommand = new DelegateCommand(SaveAsync));
+
+        public DelegateCommand ChangeImageCommand => _changeImageCommand ?? (_changeImageCommand = new DelegateCommand(ChangeImageAsync));
         public bool IsRunning
         {
             get => _isRunning;
@@ -88,13 +98,52 @@ namespace TravelBills.Prism.ViewModels
             {
                 return;
             }
+
+            IsRunning = true;
+            IsEnabled = false;
+            string url = App.Current.Resources["UrlAPI"].ToString();
+
+            byte[] imageArray = null;
+
+            if (_file != null)
+            {
+                imageArray = _filesHelper.ReadFully(_file.GetStream());
+            }
+
+            TripDetail.StartDate = Date + Time;
+            TripDetail.PictureArray = imageArray;
+            TripDetail.TripId = _trip.Id;
+            TripDetail.TripExpenseTypeId = TripExpenseType.Id;
+            TripDetail.CultureInfo = Languages.Culture;
+
+            TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+            Response response = await _apiService.NewTripDetailAsync(url, "/api", "/TripDetail", TripDetail, "bearer", token.Token);
+            IsRunning = false;
+            IsEnabled = true;
+
+            if (!response.IsSuccess)
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
+                return;
+            }
+
+            await App.Current.MainPage.DisplayAlert(Languages.OK, response.Message, Languages.Accept);
+            await _navigationService.GoBackAsync();
         }
             private async Task<bool> ValidateDataAsync()
         {
-
+            if (Image.ToString().Contains("/images/noimage.png"))
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, "Please upload an image of the expense type!", Languages.Accept);
+                return false;
+            }
             if (string.IsNullOrEmpty(TripDetail.BillValue.ToString()) || TripDetail.BillValue == 0)
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, "Please enter the bill value", Languages.Accept);
+                return false;
+            }else if (TripDetail.BillValue <= 0)
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, "Please enter a valid the bill value", Languages.Accept);
                 return false;
             }
 
@@ -105,6 +154,57 @@ namespace TravelBills.Prism.ViewModels
             }
 
             return true;
+        }
+        private async void ChangeImageAsync()
+        {
+            await CrossMedia.Current.Initialize();
+
+            string source = await Application.Current.MainPage.DisplayActionSheet(
+               Languages.PictureSource,
+                Languages.Cancel,
+                null,
+                Languages.FromGallery,
+                Languages.FromCamera);
+
+            if (source == Languages.Cancel)
+            {
+                _file = null;
+                return;
+            }
+
+            try
+            {
+                if (source == Languages.FromCamera)
+                {
+                    _file = await CrossMedia.Current.TakePhotoAsync(
+                        new StoreCameraMediaOptions
+                        {
+                            Directory = "Sample",
+                            Name = "test.jpg",
+                            PhotoSize = PhotoSize.Small,
+                        }
+                    );
+                }
+                else
+                {
+                    _file = await CrossMedia.Current.PickPhotoAsync();
+                }
+            }
+            catch (System.Exception)
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, "You need to give the application permissions to select the image, try again!", Languages.Accept);
+                return;
+            }
+
+
+            if (_file != null)
+            {
+                Image = ImageSource.FromStream(() =>
+                {
+                    System.IO.Stream stream = _file.GetStream();
+                    return stream;
+                });
+            }
         }
         private async void LoadTripExpenseTypeAsync()
         {

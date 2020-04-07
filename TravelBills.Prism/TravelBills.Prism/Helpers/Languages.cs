@@ -16,6 +16,14 @@ namespace TravelBills.Prism.Helpers
         }
         public static string Culture { get; set; }
 
+        public static string PictureSource => Resource.PictureSource;
+
+        public static string Cancel => Resource.Cancel;
+
+        public static string FromCamera => Resource.FromCamera;
+
+        public static string FromGallery => Resource.FromGallery;
+
         public static string Save => Resource.Save;
 
         public static string PleaseEnterACity => Resource.PleaseEnterACity;

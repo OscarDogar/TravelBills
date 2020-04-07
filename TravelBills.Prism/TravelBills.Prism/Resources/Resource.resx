@@ -275,4 +275,16 @@ Welcome to my application in which you can login to register the trips you make 
   <data name="PleaseEnterACity" xml:space="preserve">
     <value>Please enter a city</value>
   </data>
+  <data name="PictureSource" xml:space="preserve">
+    <value>Picture Source</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>From Camera </value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>From Gallery</value>
+  </data>
 </root>

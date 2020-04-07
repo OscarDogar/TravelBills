@@ -294,4 +294,16 @@
   <data name="PleaseEnterACity" xml:space="preserve">
     <value>Bitte geben Sie die Stadt ein</value>
   </data>
+  <data name="PictureSource" xml:space="preserve">
+    <value>Picture source</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="FromCamera" xml:space="preserve">
+    <value>Kamera</value>
+  </data>
+  <data name="FromGallery" xml:space="preserve">
+    <value>Aus Katalog</value>
+  </data>
 </root>
