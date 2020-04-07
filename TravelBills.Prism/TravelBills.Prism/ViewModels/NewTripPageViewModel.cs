@@ -107,6 +107,7 @@ namespace TravelBills.Prism.ViewModels
             }
 
             await App.Current.MainPage.DisplayAlert(Languages.OK, response.Message, Languages.Accept);
+            TripsPageViewModel.GetInstance().LoadTripsAsync();
             await _navigationService.GoBackAsync();
         }
         private async Task<bool> ValidateDataAsync()
