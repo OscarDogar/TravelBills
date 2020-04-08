@@ -338,4 +338,10 @@ Welcome to my application in which you can login to register the trips you make 
   <data name="BillValue" xml:space="preserve">
     <value>Bill Value</value>
   </data>
+  <data name="TapTheImage" xml:space="preserve">
+    <value>Tap the image to add a new image</value>
+  </data>
+  <data name="TapTheTrip" xml:space="preserve">
+    <value>Tap the trip to add a new expense</value>
+  </data>
 </root>

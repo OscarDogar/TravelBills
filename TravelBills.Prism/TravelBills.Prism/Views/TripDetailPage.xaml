@@ -18,6 +18,11 @@
                      Padding="10,2">
 
             <StackLayout>
+                <Label 
+                     Text="{i18n:Translate TapTheImage}"
+                     TextColor="Black"  
+                    FontSize="Large"
+                     VerticalOptions="Center"/>
                 <ffimageloading:CachedImage Aspect="AspectFit"
                                                 Source="{Binding Image}" 
                                                 CacheDuration= "50"
@@ -90,7 +95,7 @@
                 </Picker>
 
             </StackLayout>
-            <StackLayout VerticalOptions="End">
+            <StackLayout Padding="10" VerticalOptions="EndAndExpand" >
                 <Button Command="{Binding SaveCommand}"
                         IsEnabled="{Binding IsEnabled}"
                          Text="{i18n:Translate Add}"

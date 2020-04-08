@@ -709,6 +709,24 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tap the image to add a new image.
+        /// </summary>
+        public static string TapTheImage {
+            get {
+                return ResourceManager.GetString("TapTheImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tap the trip to add a new expense.
+        /// </summary>
+        public static string TapTheTrip {
+            get {
+                return ResourceManager.GetString("TapTheTrip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The start date must be less than the end date.
         /// </summary>
         public static string TheStartDateMustBeLess {

@@ -357,4 +357,10 @@
   <data name="BillValue" xml:space="preserve">
     <value>Valor de la factura</value>
   </data>
+  <data name="TapTheImage" xml:space="preserve">
+    <value>Toque la imagen para agregar una nueva imagen</value>
+  </data>
+  <data name="TapTheTrip" xml:space="preserve">
+    <value>Toque el viaje para agregar un nuevo gasto para el viaje</value>
+  </data>
 </root>

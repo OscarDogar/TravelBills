@@ -10,20 +10,10 @@
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All" 
                      Padding="10">
-
+            <Image HeightRequest="150"
+                   Margin="0,20,0,0"
+                   Source="Bill"/>
             <Label TextColor="{StaticResource ColorFont}" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Text="{i18n:Translate Welcome}" />
         </StackLayout>
-        <!--<busyindicator:SfBusyIndicator AnimationType="SingleCircle" 
-                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
-                	                   AbsoluteLayout.LayoutFlags="All"
-                	                   BackgroundColor="Silver"
-                	                   HorizontalOptions="Center"
-                	                   TextColor="White"
-                	                   IsVisible="{Binding IsRunning}"
-                	                   Title="Loading..."
-                	                   VerticalOptions="Center"
-                	                   ViewBoxWidth="80"
-                	                   ViewBoxHeight="80" />-->
-
     </AbsoluteLayout>
 </ContentPage>

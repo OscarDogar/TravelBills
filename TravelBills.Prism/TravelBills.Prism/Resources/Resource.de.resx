@@ -357,4 +357,10 @@
   <data name="BillValue" xml:space="preserve">
     <value>Bill Value</value>
   </data>
+  <data name="TapTheImage" xml:space="preserve">
+    <value>Tippen Sie auf das Bild, um ein neues Bild hinzuzufügen</value>
+  </data>
+  <data name="TapTheTrip" xml:space="preserve">
+    <value>Tippen Sie auf die Reise, um eine neue Ausgabe hinzuzufügen</value>
+  </data>
 </root>

@@ -18,6 +18,10 @@ namespace TravelBills.Prism.Helpers
 
         public static string City => Resource.City;
 
+        public static string TapTheImage => Resource.TapTheImage;
+
+        public static string TapTheTrip => Resource.TapTheTrip;
+
         public static string TripExpenseType => Resource.TripExpenseType;
 
         public static string BillValue => Resource.BillValue;
