@@ -20,9 +20,9 @@
                         <inputLayout:SfTextInputLayout ContainerType="Outlined"
                                                    OutlineCornerRadius="8"
                                                    ReserveSpaceForAssistiveLabels="False"
-                                                   Hint="City">
+                                                   Hint="{i18n:Translate City}">
 
-                            <Entry Placeholder="Enter the city"
+                            <Entry Placeholder="{i18n:Translate CityPlaceHolder }"
                                    Text="{Binding Trip.VisitedCity}"/> 
                         </inputLayout:SfTextInputLayout>
                     </StackLayout>
@@ -30,7 +30,7 @@
                         <inputLayout:SfTextInputLayout ContainerType="Outlined"
                                                    OutlineCornerRadius="8"
                                                    ReserveSpaceForAssistiveLabels="False"
-                                                   Hint="Start date">
+                                                   Hint="{i18n:Translate StartDate}">
 
                             <DatePicker x:Name="startDatePicker"
                      TextColor="Black"
@@ -45,7 +45,7 @@
                         <inputLayout:SfTextInputLayout ContainerType="Outlined"
                                                    OutlineCornerRadius="8"
                                                    ReserveSpaceForAssistiveLabels="False"
-                                                   Hint="Trip type">
+                                                   Hint="{i18n:Translate EndDate}">
                     <DatePicker x:Name="EndDate"
                      TextColor="Black"
                      Date="{Binding Trip.EndDate}"
@@ -56,7 +56,7 @@
                     </StackLayout>
 
                     <Label 
-                     Text="Trip Types"
+                     Text="{i18n:Translate TripTypes}"
                      TextColor="Black"  
                      FontAttributes="Bold" 
                      VerticalOptions="Center"/>
@@ -65,7 +65,7 @@
                      ItemDisplayBinding="{Binding Type}"
                      ItemsSource="{Binding TripTypes}"
                      SelectedItem="{Binding TripType}"
-                     Title="Select the trip type:">
+                     Title="{i18n:Translate SelectTheTripType}">
                     </Picker>
                        
                 </StackLayout>

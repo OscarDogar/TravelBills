@@ -16,6 +16,40 @@ namespace TravelBills.Prism.Helpers
         }
         public static string Culture { get; set; }
 
+        public static string City => Resource.City;
+
+        public static string TripExpenseType => Resource.TripExpenseType;
+
+        public static string BillValue => Resource.BillValue;
+
+        public static string CityPlaceHolder => Resource.CityPlaceHolder;
+
+        public static string StartDate => Resource.StartDate;
+
+        public static string TripType => Resource.TripType;
+
+        public static string TripTypes => Resource.TripTypes;
+
+        public static string SelectTheTripType => Resource.SelectTheTripType;
+
+        public static string Date => Resource.Date;
+
+        public static string Time => Resource.Time;
+
+        public static string SelectTheTripExpenseType => Resource.SelectTheTripExpenseType;
+
+        public static string Add => Resource.Add;
+
+        public static string EndDate => Resource.EndDate;
+
+        public static string PleaseEnterTheBillValue => Resource.PleaseEnterTheBillValue;
+
+        public static string PleaseUploadAPictureOfTheBill => Resource.PleaseUploadAPictureOfTheBill;
+
+        public static string PleaseSelectTheTripExpenseType => Resource.PleaseSelectTheTripExpenseType;
+
+        public static string PleaseGrantTheRequiredRermissions => Resource.PleaseGrantTheRequiredRermissions;
+
         public static string PictureSource => Resource.PictureSource;
 
         public static string Cancel => Resource.Cancel;

@@ -8,14 +8,14 @@
              Title="{Binding Title}"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             xmlns:i18n="clr-namespace:TravelBills.Prism.Helpers"
+             xmlns:i18n="clr-namespace:TravelBills.Prism.Helpers" xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
              BackgroundColor="{StaticResource ColorBackground}"
              x:Class="TravelBills.Prism.Views.TripDetailPage">
 
     <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All"
-                     Padding="10">
+                     Padding="10,2">
 
             <StackLayout>
                 <ffimageloading:CachedImage Aspect="AspectFit"
@@ -26,29 +26,30 @@
                                                 RetryCount= "3"
                                                 RetryDelay= "600">
                     <ffimageloading:CachedImage.Transformations>
-                        <fftransformations:CircleTransformation />
+                        <fftransformations:FlipTransformation />
                     </ffimageloading:CachedImage.Transformations>
                     <ffimageloading:CachedImage.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
                     </ffimageloading:CachedImage.GestureRecognizers>
                 </ffimageloading:CachedImage>
                 <StackLayout>
-                    <inputLayout:SfTextInputLayout ContainerType="Outlined"
-                                                   OutlineCornerRadius="8"
-                                                   ReserveSpaceForAssistiveLabels="False"
-                                                   Hint="Bill Value">
-                        <Entry Grid.Row="0"
-                    Grid.Column="1"
-                    Keyboard="Numeric"
-                    Placeholder="Enter the value"
-                    Text="{Binding TripDetail.BillValue}"/>
-                    </inputLayout:SfTextInputLayout>
+
+                    <Label 
+                     Text="{i18n:Translate BillValue}"
+                     TextColor="Black"  
+                     FontAttributes="Bold" 
+                     VerticalOptions="Center"/>
+                    <numeric:SfNumericUpDown x:Name="numericUpDown" 
+                                             Value="{Binding TripDetail.BillValue}" 
+                                             ParsingMode="Decimal" Minimum="0" 
+                                             FormatString="0.00" />
+                   
                 </StackLayout>
                 <StackLayout>
                     <inputLayout:SfTextInputLayout ContainerType="Outlined"
                                                    OutlineCornerRadius="8"
                                                    ReserveSpaceForAssistiveLabels="False"
-                                                   Hint="Date">
+                                                   Hint="{i18n:Translate Date}">
 
                         <DatePicker x:Name="startDatePicker"
                      TextColor="Black"
@@ -64,7 +65,7 @@
                 <inputLayout:SfTextInputLayout ContainerType="Outlined"
                                                    OutlineCornerRadius="8"
                                                    ReserveSpaceForAssistiveLabels="False"
-                                                   Hint="Time">
+                                                   Hint="{i18n:Translate Time}">
                     <TimePicker x:Name="timePicker"
                      Time="{Binding Time}"
                      FontAttributes="Bold"
@@ -73,10 +74,10 @@
             </StackLayout>
            
                
-                <StackLayout Orientation="Horizontal" Spacing="4" VerticalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal" Spacing="2" VerticalOptions="CenterAndExpand">
                     <Image Source="city" />
                     <Label 
-                     Text="Type Expense"
+                     Text="{i18n:Translate TripExpenseType}"
                      TextColor="Black"  
                      FontAttributes="Bold" 
                      VerticalOptions="Center"/>
@@ -85,14 +86,14 @@
                      ItemDisplayBinding="{Binding Type}"
                      ItemsSource="{Binding TripExpenseTypes}"
                      SelectedItem="{Binding TripExpenseType}"
-                     Title="Select the trip expense type:">
+                     Title="{i18n:Translate SelectTheTripExpenseType}">
                 </Picker>
 
             </StackLayout>
             <StackLayout VerticalOptions="End">
                 <Button Command="{Binding SaveCommand}"
                         IsEnabled="{Binding IsEnabled}"
-                         Text="Add"
+                         Text="{i18n:Translate Add}"
                         Style="{StaticResource DangerButton}"/>
             </StackLayout>
            

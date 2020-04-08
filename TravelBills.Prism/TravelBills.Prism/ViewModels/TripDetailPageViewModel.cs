@@ -134,22 +134,18 @@ namespace TravelBills.Prism.ViewModels
         {
             if (Image.ToString().Contains("/images/noimage.png"))
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, "Please upload an image of the expense type!", Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.PleaseUploadAPictureOfTheBill , Languages.Accept);
                 return false;
             }
             if (string.IsNullOrEmpty(TripDetail.BillValue.ToString()) || TripDetail.BillValue == 0)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, "Please enter the bill value", Languages.Accept);
-                return false;
-            }else if (TripDetail.BillValue <= 0)
-            {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, "Please enter a valid the bill value", Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.PleaseEnterTheBillValue, Languages.Accept);
                 return false;
             }
 
             if (TripExpenseType == null)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, "Please select the trip expense type", Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.PleaseSelectTheTripExpenseType, Languages.Accept);
                 return false;
             }
 
@@ -192,7 +188,7 @@ namespace TravelBills.Prism.ViewModels
             }
             catch (System.Exception)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, "You need to give the application permissions to select the image, try again!", Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.PleaseGrantTheRequiredRermissions, Languages.Accept);
                 return;
             }
 

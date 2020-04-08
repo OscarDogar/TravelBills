@@ -70,6 +70,15 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -97,6 +106,15 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bill Value.
+        /// </summary>
+        public static string BillValue {
+            get {
+                return ResourceManager.GetString("BillValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -111,6 +129,24 @@ namespace TravelBills.Prism.Resources {
         public static string ChangePassword {
             get {
                 return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        public static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the city.
+        /// </summary>
+        public static string CityPlaceHolder {
+            get {
+                return ResourceManager.GetString("CityPlaceHolder", resourceCulture);
             }
         }
         
@@ -178,6 +214,15 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Document.
         /// </summary>
         public static string Document {
@@ -228,6 +273,15 @@ namespace TravelBills.Prism.Resources {
         public static string EmailPlaceHolder {
             get {
                 return ResourceManager.GetString("EmailPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End date.
+        /// </summary>
+        public static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
             }
         }
         
@@ -565,11 +619,47 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter the bill value.
+        /// </summary>
+        public static string PleaseEnterTheBillValue {
+            get {
+                return ResourceManager.GetString("PleaseEnterTheBillValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please grant the required permissions.
+        /// </summary>
+        public static string PleaseGrantTheRequiredRermissions {
+            get {
+                return ResourceManager.GetString("PleaseGrantTheRequiredRermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select a trip type!.
         /// </summary>
         public static string PleaseSelectATripType {
             get {
                 return ResourceManager.GetString("PleaseSelectATripType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select the trip expense type.
+        /// </summary>
+        public static string PleaseSelectTheTripExpenseType {
+            get {
+                return ResourceManager.GetString("PleaseSelectTheTripExpenseType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please upload a picture of the bill.
+        /// </summary>
+        public static string PleaseUploadAPictureOfTheBill {
+            get {
+                return ResourceManager.GetString("PleaseUploadAPictureOfTheBill", resourceCulture);
             }
         }
         
@@ -592,6 +682,33 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select the trip expense type.
+        /// </summary>
+        public static string SelectTheTripExpenseType {
+            get {
+                return ResourceManager.GetString("SelectTheTripExpenseType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the trip type.
+        /// </summary>
+        public static string SelectTheTripType {
+            get {
+                return ResourceManager.GetString("SelectTheTripType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Date .
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The start date must be less than the end date.
         /// </summary>
         public static string TheStartDateMustBeLess {
@@ -601,11 +718,47 @@ namespace TravelBills.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string Time {
+            get {
+                return ResourceManager.GetString("Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trip Expense type.
+        /// </summary>
+        public static string TripExpenseType {
+            get {
+                return ResourceManager.GetString("TripExpenseType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trips Page.
         /// </summary>
         public static string TripsPage {
             get {
                 return ResourceManager.GetString("TripsPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trip Type .
+        /// </summary>
+        public static string TripType {
+            get {
+                return ResourceManager.GetString("TripType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trip Types .
+        /// </summary>
+        public static string TripTypes {
+            get {
+                return ResourceManager.GetString("TripTypes", resourceCulture);
             }
         }
         

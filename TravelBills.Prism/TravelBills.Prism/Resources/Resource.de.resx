@@ -306,4 +306,55 @@
   <data name="FromGallery" xml:space="preserve">
     <value>Aus Katalog</value>
   </data>
+  <data name="PleaseEnterTheBillValue" xml:space="preserve">
+    <value>Bitte geben Sie den Rechnungswert ein!</value>
+  </data>
+  <data name="PleaseUploadAPictureOfTheBill" xml:space="preserve">
+    <value>Bitte ein Bild des Produktes hochladen</value>
+  </data>
+  <data name="PleaseSelectTheTripExpenseType" xml:space="preserve">
+    <value>Bitte wählen Sie die Reisekostenart aus!</value>
+  </data>
+  <data name="PleaseGrantTheRequiredRermissions" xml:space="preserve">
+    <value>Bitte erteilen Sie die erforderlichen Berechtigungen!</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Ort</value>
+  </data>
+  <data name="CityPlaceHolder" xml:space="preserve">
+    <value>Geben Sie hier die Stadt ein.</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Anfangsdatum</value>
+  </data>
+  <data name="TripType" xml:space="preserve">
+    <value>Reiseart</value>
+  </data>
+  <data name="TripTypes" xml:space="preserve">
+    <value>Bootsfahrt Typen</value>
+  </data>
+  <data name="SelectTheTripType" xml:space="preserve">
+    <value>Wählen Sie den Reisetyp!</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Zeit</value>
+  </data>
+  <data name="SelectTheTripExpenseType" xml:space="preserve">
+    <value>Wählen Sie die Reisekostenart aus!</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Hinzufügen...</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Enddatum</value>
+  </data>
+  <data name="TripExpenseType" xml:space="preserve">
+    <value>Kostenart</value>
+  </data>
+  <data name="BillValue" xml:space="preserve">
+    <value>Bill Value</value>
+  </data>
 </root>

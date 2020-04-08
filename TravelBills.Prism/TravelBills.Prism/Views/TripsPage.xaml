@@ -67,9 +67,6 @@
                                     TextColor="black"
                                     VerticalOptions="End" />
                                         </StackLayout>
-
-                                       
-
                                     </StackLayout>
                                     <Image Grid.Column="2" 
                                    Source="ic_more_vert"/>
