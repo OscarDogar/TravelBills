@@ -5,17 +5,24 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
 
 <br />
+
+<a asp-action="Index" class="btn btn-success"><i class="glyphicon glyphicon-arrow-left"></i> Back to trips</a>
 <div class="row">
+
     <div class="col-md-12">
+        <br />
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Trip Details</h3>
             </div>
             <div class="panel-body">
-                
+
                 <table class="table table-hover table-responsive table-striped" id="MyTable">
                     <thead>
                         <tr>
+                            <th>
+                                Expense Type
+                            </th>
                             <th>
                                 Date
                             </th>
@@ -25,27 +32,30 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.BillValue)
                             </th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
-                            {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.StartDate)
-                            </td>
-                            <td>
-                                @if (!string.IsNullOrEmpty(item.PicturePath))
-                                        {
-                                <img src="@Url.Content(item.PicturePath)" alt="Image" style="width:200px;height:200px;max-width: 100%; height: auto;" />
-                                        }
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BillValue)
-                            </td>
-                        </tr>
-                            }
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TripExpenseType.Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                </td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.PicturePath))
+                                    {
+                                        <img src="@Url.Content(item.PicturePath)" alt="Image" style="width:200px;height:200px;max-width: 100%; height: auto;" />
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BillValue)
+                                </td>
+
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>

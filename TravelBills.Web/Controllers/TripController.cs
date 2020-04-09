@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using TravelBills.Web.Models;
 
 namespace TravelBills.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class TripController : Controller
     {
         private readonly DataContext _context;
@@ -33,7 +35,7 @@ namespace TravelBills.Web.Controllers
         // GET: Trip/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            return View(await _context.TripDetails.Where(td => td.Trip.Id == id).ToListAsync());
+            return View(await _context.TripDetails.Include(tt=> tt.TripExpenseType) .Where(td => td.Trip.Id == id).ToListAsync());
         }
 
         // GET: Trip/Edit/5

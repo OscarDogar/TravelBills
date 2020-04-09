@@ -16,7 +16,10 @@
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.TripType.Type)
+                                Trip Type
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.User.FullName)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.VisitedCity)
@@ -27,9 +30,7 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.EndDateLocal)
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.User.FullName)
-                            </th>
+
                             <th>
                                 Total Expense
                             </th>
@@ -47,6 +48,9 @@
                                 @Html.DisplayFor(modelItem => item.TripType.Type)
                             </th>
                             <td>
+                                @Html.DisplayFor(modelItem => item.User.FullName)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.VisitedCity)
                             </td>
                             <td>
@@ -55,9 +59,7 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.EndDate)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.User.FullName)
-                            </td>
+
                             <td>
                                 @Html.DisplayFor(modelItem => item.Total)
                             </td>
@@ -66,7 +68,7 @@
                             </td>
                             <td>
                                 @*<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id"><i class="glyphicon glyphicon-pencil"></i></a>*@
-                                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">More <i class="glyphicon glyphicon-align-justify"></i></a>
+                                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">View Details <i class="glyphicon glyphicon-align-justify"></i></a>
                                 @* I had to remove the delete button because the id of the item, when i tried to delete it was making a problem with the fk in tripDetails
             so to solve this problem we have to delete the id of tripEntity in TripDetails first*@
                             </td>
