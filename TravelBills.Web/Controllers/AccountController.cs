@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -139,8 +139,8 @@ namespace Soccer.Web.Controllers
                     token = myToken
                 }, protocol: HttpContext.Request.Scheme);
 
-                var response = _mailHelper.SendMail(model.Username, "Email confirmation", $"<h1>Email Confirmation</h1>" +
-                    $"To allow the user, " +
+                var response = _mailHelper.SendMail(model.Username, "Email confirmation", "<h1>Email Confirmation</h1>"+
+"To allow the user, "+
                     $"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
                 if (response.IsSuccess)
                 {
@@ -196,8 +196,8 @@ namespace Soccer.Web.Controllers
                     "ResetPassword",
                     "Account",
                     new { token = myToken }, protocol: HttpContext.Request.Scheme);
-                _mailHelper.SendMail(model.Email, "Soccer Password Reset", $"<h1>Soccer Password Reset</h1>" +
-                    $"To reset the password click in this link:</br></br>" +
+                _mailHelper.SendMail(model.Email, "Soccer Password Reset", "<h1>Soccer Password Reset</h1>"+
+"To reset the password click in this link:</br></br>"+
                     $"<a href = \"{link}\">Reset Password</a>");
                 ViewBag.Message = "The instructions to recover your password has been sent to email.";
                 return View();

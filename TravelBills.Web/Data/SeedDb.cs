@@ -1,4 +1,4 @@
-﻿using Soccer.Common.Enums;
+using Soccer.Common.Enums;
 using Soccer.Web.Data.Entities;
 using Soccer.Web.Helpers;
 using System;
@@ -124,7 +124,7 @@ namespace TravelBills.Web.Data
                          new TripDetailEntity
                         {
                              StartDate=startDateToTripDetails,
-                             PicturePath = $"~/images/BillsPictures/factura.png",
+                             PicturePath = "~/images/BillsPictures/factura.png",
                              BillValue=5000,
                              TripExpenseType = _context.TripExpenseTypes.FirstOrDefault(t => t.Type == "Hotel")
                         }
@@ -145,7 +145,7 @@ namespace TravelBills.Web.Data
                          new TripDetailEntity
                         {
                              StartDate=startDateToTripDetails,
-                             PicturePath = $"~/images/BillsPictures/factura.png",
+                             PicturePath = "~/images/BillsPictures/factura.png",
                              BillValue=78000,
                              TripExpenseType = _context.TripExpenseTypes.FirstOrDefault(t => t.Type == "Transportation")
                         }
@@ -166,14 +166,14 @@ namespace TravelBills.Web.Data
                          new TripDetailEntity
                         {
                              StartDate=startDateToTripDetails,
-                             PicturePath = $"~/images/BillsPictures/factura2.png",
+                             PicturePath = "~/images/BillsPictures/factura2.png",
                              BillValue=78000,
                              TripExpenseType = _context.TripExpenseTypes.FirstOrDefault(t => t.Type == "Ticket")
                         },
                           new TripDetailEntity
                         {
                              StartDate=startDateToTripDetails,
-                             PicturePath = $"~/images/BillsPictures/factura2.png",
+                             PicturePath = "~/images/BillsPictures/factura2.png",
                              BillValue=16000,
                              TripExpenseType = _context.TripExpenseTypes.FirstOrDefault(t => t.Type == "Food")
                         }

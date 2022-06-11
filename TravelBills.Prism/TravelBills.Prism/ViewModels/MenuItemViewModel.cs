@@ -1,4 +1,4 @@
-﻿using Soccer.Common.Models;
+using Soccer.Common.Models;
 using Prism.Commands;
 using Prism.Navigation;
 using TravelBills.Common.Helpers;
@@ -27,7 +27,7 @@ namespace Soccer.Prism.ViewModels
             }
             if (IsLoginRequired && !Settings.IsLogin)
             {
-                await _navigationService.NavigateAsync($"/TripBillMasterDetailPage/NavigationPage/LoginPage");
+                await _navigationService.NavigateAsync("/TripBillMasterDetailPage/NavigationPage/LoginPage");
             }
             else
             {
